@@ -1,0 +1,31 @@
+<div class="container">
+    <form class="form" action="" method="post" [formGroup]="loginForm">
+        <p class="align-center title">
+            Inicie sesión
+        </p>
+        <div>
+            <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Usuario</mat-label>
+                <input matInput formControlName="usuario" required>
+                <mat-error *ngIf="validateUser()">{{msjError}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Clave</mat-label>
+                <input matInput formControlName="clave" [type]="hide ? 'password' : 'text'" required>
+                <mat-error *ngIf="validateClave()">{{msjError}}</mat-error>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="recordar">Recordar usuario</mat-checkbox>
+        </div>
+        <div class="align-center ">
+            <button mat-raised-button (click)="submit()" color="primary" [disabled]="loading">Aceptar</button>
+        </div>
+    </form>
+</div>

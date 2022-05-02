@@ -1,0 +1,12 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span> ¡Hola! </span>
+        <div class="p-20"> {{user?.nombre}} {{user?.apellido}} </div>
+        <span class="example-spacer"></span>
+        <small class="p-20"> {{user?.edad}} años</small>
+        <small class="p-20"> rol {{user?.rol}} </small>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div>
+    <router-outlet></router-outlet>
+</div>
